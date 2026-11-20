@@ -1,0 +1,14 @@
+# NVIDIA .run installers — download manually from nvidia.com,
+# they are not redistributable via this repository (and ~400 MB each)
+NVIDIA-Linux-*.run
+*.run
+
+# Build artifacts and package output
+nvidia-dkms-build/
+nvidia-userspace-build/
+nvidia-packages/
+
+# Editor / OS noise
+*.swp
+*~
+.DS_Store

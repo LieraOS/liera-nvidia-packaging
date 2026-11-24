@@ -20,7 +20,7 @@ paketieren ihn:
 
 | Modulpfad | Verwendet von | Status hier |
 |---|---|---|
-| `kernel/` (proprietär) | Treiber-Branches für Hardware vor GSP | **Auf echter Hardware verifiziert** — GTX 1060 6GB, selbstgebauter Kernel 7.3.x: DKMS-Build, Boot, Wayland-Session, GL funktionieren |
+| `kernel/` (proprietär) | Treiber-Branches für Hardware vor GSP | **Auf echter Hardware verifiziert** — GTX 1060 6GB auf dem aktuellen LieraOS-Kernel: DKMS-Build, Boot, Wayland-Session, GL funktionieren |
 | `kernel-open/` (GSP) | Treiber-Branches für Turing und neuer | **Pakete bauen sauber, sind aber auf echter Hardware UNGETESTET** — siehe [Mithilfe gesucht](#mithilfe-gesucht-turing-tester) |
 
 Der Test-Compile in `build_nvidia_all.sh` verifiziert nur, dass

@@ -2,8 +2,8 @@
 
 ## Open
 
-- [ ] **RTX/Turing+ verification (top priority):** the 595-branch
-      packages (`kernel-open`/GSP path) build cleanly but have never
+- [ ] **RTX/Turing+ verification (top priority):** the
+      `kernel-open`/GSP-path packages build cleanly but have never
       run on real hardware. Needed: install on a Turing-or-newer GPU,
       `dkms status`, `nvidia-smi`, Wayland session, Vulkan
       (`vulkaninfo`), suspend/resume. Reports welcome — see README
@@ -32,7 +32,8 @@
 ## Done
 
 - [x] Batch builder `build_nvidia_all.sh` (all .run -> .deb per version)
-- [x] Branch detection in the DKMS script (< 590 kernel/, >= 590 kernel-open/)
+- [x] Module-source detection in the DKMS script (proprietary
+      kernel/ vs kernel-open/ GSP path, with fallback)
 - [x] Test-compile against linux-headers-*liera*.deb before packaging
 - [x] Mutual conflicts between branches (Provides/Conflicts trick,
       no hardcoded version lists)
@@ -43,8 +44,8 @@
 - [x] GPU generation detection in the lieragpu job (PCI device ID
       threshold 0x1e02, class 0x03xxx filtered)
 - [x] 32-bit Depends `libc6` instead of `libc6-i386` (clean multiarch)
-- [x] **Verified on real Pascal hardware:** GTX 1060 6GB,
-      kernel 7.3.1-liera-gaming-amd64, driver 580.196.07 — DKMS
-      build, boot, Wayland session, GL working (all three
-      `liera-nvidia-580-*` packages installed from this pipeline)
+- [x] **Verified on real Pascal hardware:** GTX 1060 6GB on the
+      current LieraOS kernel — DKMS build, boot, Wayland session,
+      GL working (the proprietary-`kernel/` package set installed
+      from this pipeline)
 - [x] English script output + bilingual docs for publication

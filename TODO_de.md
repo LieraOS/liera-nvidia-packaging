@@ -2,8 +2,8 @@
 
 ## Offen
 
-- [ ] **RTX/Turing+-Verifikation (höchste Priorität):** Die 595er-
-      Pakete (`kernel-open`/GSP-Pfad) bauen sauber, liefen aber noch
+- [ ] **RTX/Turing+-Verifikation (höchste Priorität):** Die Pakete
+      für den `kernel-open`/GSP-Pfad bauen sauber, liefen aber noch
       nie auf echter Hardware. Benötigt: Installation auf einer
       Turing-oder-neueren GPU, `dkms status`, `nvidia-smi`,
       Wayland-Session, Vulkan (`vulkaninfo`), Suspend/Resume.
@@ -32,7 +32,8 @@
 ## Erledigt
 
 - [x] Batch-Builder `build_nvidia_all.sh` (alle .run -> .deb je Version)
-- [x] Branch-Erkennung im DKMS-Skript (< 590 kernel/, >= 590 kernel-open/)
+- [x] Modulquellen-Erkennung im DKMS-Skript (proprietäres kernel/
+      vs. kernel-open-/GSP-Pfad, mit Fallback)
 - [x] Test-Kompilierung gegen linux-headers-*liera*.deb vor dem Packen
 - [x] Gegenseitige Konflikte zwischen Branches (Provides/Conflicts-
       Trick, ohne hardkodierte Versionslisten)
@@ -43,9 +44,9 @@
 - [x] GPU-Generations-Erkennung im lieragpu-Job (PCI-Device-ID
       Schwelle 0x1e02, Klasse 0x03xxx gefiltert)
 - [x] 32-bit-Depends `libc6` statt `libc6-i386` (sauberes Multiarch)
-- [x] **Auf echter Pascal-Hardware verifiziert:** GTX 1060 6GB,
-      Kernel 7.3.1-liera-gaming-amd64, Treiber 580.196.07 —
-      DKMS-Build, Boot, Wayland-Session, GL funktionieren (alle drei
-      `liera-nvidia-580-*`-Pakete aus dieser Pipeline installiert)
+- [x] **Auf echter Pascal-Hardware verifiziert:** GTX 1060 6GB auf
+      dem aktuellen LieraOS-Kernel — DKMS-Build, Boot,
+      Wayland-Session, GL funktionieren (das Paket-Set des
+      proprietären kernel/-Pfads aus dieser Pipeline installiert)
 - [x] Englische Skript-Ausgaben + zweisprachige Doku für die
       Veröffentlichung

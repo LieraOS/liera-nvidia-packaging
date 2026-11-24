@@ -18,7 +18,7 @@ scripts detect which one is present and package it:
 
 | Module path | Used by | Status here |
 |---|---|---|
-| `kernel/` (proprietary) | driver branches for pre-GSP hardware | **Verified on real hardware** — GTX 1060 6GB, self-built kernel 7.3.x: DKMS build, boot, Wayland session, GL all working |
+| `kernel/` (proprietary) | driver branches for pre-GSP hardware | **Verified on real hardware** — GTX 1060 6GB on the current LieraOS kernel: DKMS build, boot, Wayland session, GL all working |
 | `kernel-open/` (GSP) | driver branches for Turing and newer | **Packages build cleanly but are UNTESTED on real hardware** — see [Help wanted](#help-wanted-turing-testers) |
 
 The test-compile step in `build_nvidia_all.sh` only verifies that

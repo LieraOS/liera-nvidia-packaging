@@ -1,6 +1,6 @@
 # LieraOS NVIDIA-Treiber-Paketierung
 
-Bauwerkzeuge für die proprietären NVIDIA-Treiberpakete, die LieraOS
+Bauwerkzeuge für die proprietären NVIDIA-Treiberpakete, die Liera
 ausliefert: Aus NVIDIAs offiziellen `.run`-Installern entstehen
 saubere `.deb`-Pakete, die sich korrekt in Debian-basierte Systeme
 integrieren — DKMS-Kernelmodul-Quellen, GLVND/Mesa-verträglicher
@@ -9,8 +9,15 @@ Secure-Boot-Vorbereitung.
 
 Die Skripte brauchen nur einen Debian-artigen Userspace
 (`dpkg-deb`, `dkms`) und laufen auf jedem vergleichbaren System.
-Die dokumentierten Defaults entsprechen dem LieraOS-Build-Layout
+Die dokumentierten Defaults entsprechen dem Liera-Build-Layout
 und lassen sich über Umgebungsvariablen umleiten.
+
+> **Status: experimentell.** Diese Skripte und die daraus erzeugten
+> Pakete sind in Entwicklung und müssen gegebenenfalls weiter
+> ausgearbeitet werden. Getestet wird ausschließlich auf Liera, der
+> Debian-basierten Distribution, mit dem eigenen Liera-Kernel —
+> nicht auf anderen Debian-basierten Distributionen oder deren
+> Kerneln. Verwendung auf eigene Gefahr.
 
 ## Zwei Kernelmodul-Pfade
 
@@ -20,7 +27,7 @@ paketieren ihn:
 
 | Modulpfad | Verwendet von | Status hier |
 |---|---|---|
-| `kernel/` (proprietär) | Treiber-Branches für Hardware vor GSP | **Auf echter Hardware verifiziert** — GTX 1060 6GB auf dem aktuellen LieraOS-Kernel: DKMS-Build, Boot, Wayland-Session, GL funktionieren |
+| `kernel/` (proprietär) | Treiber-Branches für Hardware vor GSP | **Auf echter Hardware verifiziert** — GTX 1060 6GB auf dem aktuellen Liera-Kernel: DKMS-Build, Boot, Wayland-Session, GL funktionieren |
 | `kernel-open/` (GSP) | Treiber-Branches für Turing und neuer | **Pakete bauen sauber, sind aber auf echter Hardware UNGETESTET** — siehe [Mithilfe gesucht](#mithilfe-gesucht-turing-tester) |
 
 Der Test-Compile in `build_nvidia_all.sh` verifiziert nur, dass
@@ -80,7 +87,7 @@ Die Ausgabe landet in `nvidia-packages/<VERSION>/`.
 | `SKIP_TEST_BUILD=1` | Compile-Check komplett überspringen | aus |
 | `FORCE_BUILD=1` | trotz fehlgeschlagenem Compile-Check paketieren | aus |
 
-Die Pfad-Defaults entsprechen dem LieraOS-Build-Checkout. Werden
+Die Pfad-Defaults entsprechen dem Liera-Build-Checkout. Werden
 keine passenden Kernel-Headers gefunden, warnt das Skript nur und
 fährt ohne Test-Compile fort — nichts bricht, aber der
 Pre-Flight-Check fehlt. Für vollständig eigenständigen Betrieb

@@ -1,15 +1,21 @@
 # LieraOS NVIDIA Driver Packaging
 
 Build tooling for the proprietary NVIDIA driver packages shipped by
-LieraOS: it turns NVIDIA's official `.run` installers into clean
+Liera: it turns NVIDIA's official `.run` installers into clean
 `.deb` packages that integrate properly into Debian-based systems —
 DKMS kernel module sources, GLVND/Mesa-friendly userspace, multiarch
 (32-bit) compatibility libraries and Secure Boot preparation.
 
 The scripts need only a Debian-ish userspace (`dpkg-deb`, `dkms`)
 and work on any comparable system. The documented defaults reflect
-the LiEraOS build layout and can be redirected through environment
+the Liera build layout and can be redirected through environment
 variables.
+
+> **Status: experimental.** These scripts and the packages they
+> produce are a work in progress and may need further adjustment.
+> They are tested only on Liera, the Debian-based distribution,
+> with the Liera kernel — not on other Debian-based distributions
+> or their kernels. Use at your own risk.
 
 ## Two kernel-module paths
 
@@ -18,7 +24,7 @@ scripts detect which one is present and package it:
 
 | Module path | Used by | Status here |
 |---|---|---|
-| `kernel/` (proprietary) | driver branches for pre-GSP hardware | **Verified on real hardware** — GTX 1060 6GB on the current LieraOS kernel: DKMS build, boot, Wayland session, GL all working |
+| `kernel/` (proprietary) | driver branches for pre-GSP hardware | **Verified on real hardware** — GTX 1060 6GB on the current Liera kernel: DKMS build, boot, Wayland session, GL all working |
 | `kernel-open/` (GSP) | driver branches for Turing and newer | **Packages build cleanly but are UNTESTED on real hardware** — see [Help wanted](#help-wanted-turing-testers) |
 
 The test-compile step in `build_nvidia_all.sh` only verifies that
@@ -76,7 +82,7 @@ Output lands in `nvidia-packages/<VERSION>/`.
 | `SKIP_TEST_BUILD=1` | skip the compile check entirely | off |
 | `FORCE_BUILD=1` | package even if the compile check fails | off |
 
-The path defaults match the LiEraOS build checkout. If no suitable
+The path defaults match the Liera build checkout. If no suitable
 kernel headers are found, the script warns and continues without
 the test-compile — nothing breaks, but you lose the pre-flight
 check. Point the variables at your own headers and output dir, or
